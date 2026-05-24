@@ -24,8 +24,10 @@
   },
   "license": "BSD-3-Clause",
   "main": "lib/jsonld-signatures.js",
+  "types": "index.d.ts",
   "files": [
-    "lib/**/*.js"
+    "lib/**/*.js",
+    "index.d.ts"
   ],
   "dependencies": {
     "@digitalbazaar/security-context": "^1.0.0",
