@@ -1,5 +1,11 @@
 # jsonld-signatures ChangeLog
 
+## 11.6.1 -
+### Changed
+- Add `exports` field to `package.json`
+- Add TypeScript types export
+- Add support for React Native (sha256digest via fast-text-digest and expo-crypto)
+
 ## 11.6.0 - 2026-02-04
 
 ### Changed
