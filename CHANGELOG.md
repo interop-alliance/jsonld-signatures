@@ -1,6 +1,6 @@
 # jsonld-signatures ChangeLog
 
-## 11.6.1 -
+## 11.6.1 - 2026-05-24
 ### Changed
 - Add `exports` field to `package.json`
 - Add TypeScript types export
