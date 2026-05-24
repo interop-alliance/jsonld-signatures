@@ -24,6 +24,13 @@
   },
   "license": "BSD-3-Clause",
   "main": "lib/jsonld-signatures.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./lib/jsonld-signatures.js"
+    },
+    "./lib/constants.js": "./lib/constants.js"
+  },
   "types": "index.d.ts",
   "files": [
     "lib/**/*.js",

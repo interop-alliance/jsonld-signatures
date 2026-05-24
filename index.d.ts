@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2010-2024 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2010-2026 Digital Bazaar, Inc. All rights reserved.
  */
 
 // Compatible with the documentLoader shape used by security-document-loader.
