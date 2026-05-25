@@ -1,7 +1,13 @@
-# jsonld-signatures ChangeLog
+# @interop/jsonld-signatures ChangeLog
+
+## 11.6.2 -
+
+### Changed
+- **BREAKING**: Updated to `@interop/jsonld` fork (which uses `@interop/http-client`)
 
 ## 11.6.1 - 2026-05-24
 ### Changed
+- Forked from Digital Bazaar's `jsonld-signatures@11.6.0`
 - Add `exports` field to `package.json`
 - Add TypeScript types export
 - Add support for React Native (sha256digest via fast-text-digest and expo-crypto)
