@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## 11.6.2 -
+## 11.6.2 - 2026-05-24
 
 ### Changed
 - **BREAKING**: Updated to `@interop/jsonld` fork (which uses `@interop/http-client`)
