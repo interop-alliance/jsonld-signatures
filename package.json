@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalbazaar/jsonld-signatures"
+    "url": "git+https://github.com/interop-alliance/jsonld-signatures.git"
   },
   "bugs": {
     "url": "https://github.com/digitalbazaar/jsonld-signatures/issues",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@digitalbazaar/security-context": "^1.0.1",
     "fast-text-encoding": "^1.0.6",
-    "jsonld": "^9.0.0",
+    "@interop/jsonld": "^9.0.2",
     "rdf-canonize": "^5.0.0",
     "serialize-error": "^8.1.0"
   },
