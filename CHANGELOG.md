@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## Unreleased - TBD
+## 11.6.7 - 2026-06-02
 
 ### Changed
 - (Types only) Align the exported TypeScript definitions with the shared
