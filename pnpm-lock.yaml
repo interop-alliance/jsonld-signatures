@@ -11,6 +11,9 @@ importers:
       '@digitalbazaar/security-context':
         specifier: ^1.0.1
         version: 1.0.1
+      '@interop/data-integrity-core':
+        specifier: ^6.1.0
+        version: 6.1.0
       '@interop/jsonld':
         specifier: ^9.0.2
         version: 9.0.2
@@ -190,6 +193,10 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
+
+  '@interop/data-integrity-core@6.1.0':
+    resolution: {integrity: sha512-kxm+1pfN1f9gxAxUdxeq0zhq1H54fTJQhpWGc13OD6CAjUWm+d36+fQFkA+uC63/hF9R9vVUbjKqwSiC3/kyqg==}
+    engines: {node: '>=24.0'}
 
   '@interop/http-client@1.0.3':
     resolution: {integrity: sha512-KxWiQ87iRreDfrhzrrcEJL/sDrnonhnOSyQKDlnxJywfJnB211rWOtcLlEz3kwrqw3Tt0L3H+5zVvgfG6V/xhw==}
@@ -2026,6 +2033,8 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.3': {}
+
+  '@interop/data-integrity-core@6.1.0': {}
 
   '@interop/http-client@1.0.3':
     dependencies:
