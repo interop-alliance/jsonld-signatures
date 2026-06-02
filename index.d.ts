@@ -2,25 +2,33 @@
  * Copyright (c) 2010-2026 Digital Bazaar, Inc. All rights reserved.
  */
 
-// Compatible with the documentLoader shape used by security-document-loader.
-export interface RemoteDocument {
-  contextUrl?: string | null;
-  documentUrl?: string;
-  document: any;
-  tag?: string;
-}
+// Shared @interop ecosystem types. These live in `@interop/data-integrity-core`
+// so that this package, `@interop/data-integrity-proof`,
+// `@interop/ed25519-signature`, `@interop/vc`, and friends all agree on a
+// single definition of a document loader, signer, verifier, key pair, etc.
+import type {
+  AbstractKeyPair,
+  ISigner,
+  IVerifier,
+  IVerificationMethod,
+  IProofDescription
+} from '@interop/data-integrity-core';
+import type {
+  IDocumentLoader,
+  IRemoteDocument
+} from '@interop/data-integrity-core/loader';
 
-export type DocumentLoader = (url: string) => Promise<RemoteDocument>;
-
-export interface Signer {
-  id: string;
-  sign(options: {data: Uint8Array}): Promise<Uint8Array>;
-}
-
-export interface Verifier {
-  id: string;
-  verify(options: {data: Uint8Array; signature: Uint8Array}): Promise<boolean>;
-}
+// Re-export the shared types so consumers can keep importing them from this
+// package if they prefer.
+export type {
+  AbstractKeyPair,
+  ISigner,
+  IVerifier,
+  IVerificationMethod,
+  IProofDescription,
+  IDocumentLoader,
+  IRemoteDocument
+};
 
 export interface ProofValidateResult {
   valid: boolean;
@@ -29,7 +37,7 @@ export interface ProofValidateResult {
 }
 
 export interface ProofResult {
-  proof: object;
+  proof: IProofDescription;
   verified: boolean;
   error?: Error;
   purposeResult?: ProofValidateResult;
@@ -65,29 +73,29 @@ export class ProofPurpose {
   constructor(options: ProofPurposeOptions);
 
   validate(
-    proof: object,
+    proof: IProofDescription,
     options: {
       document?: object;
       suite?: LinkedDataProof;
-      verificationMethod?: object;
-      documentLoader?: DocumentLoader;
+      verificationMethod?: IVerificationMethod;
+      documentLoader?: IDocumentLoader;
     }
   ): Promise<ProofValidateResult>;
 
   update(
-    proof: object,
+    proof: IProofDescription,
     options: {
       document?: object;
       suite?: LinkedDataProof;
-      documentLoader?: DocumentLoader;
+      documentLoader?: IDocumentLoader;
     }
-  ): Promise<object>;
+  ): Promise<IProofDescription>;
 
   match(
-    proof: object,
+    proof: IProofDescription,
     options: {
       document?: object;
-      documentLoader?: DocumentLoader;
+      documentLoader?: IDocumentLoader;
     }
   ): Promise<boolean>;
 }
@@ -128,62 +136,56 @@ export class LinkedDataProof {
   createProof(options: {
     document: object;
     purpose: ProofPurpose;
-    proofSet?: object[];
-    documentLoader: DocumentLoader;
-  }): Promise<object>;
+    proofSet?: IProofDescription[];
+    documentLoader: IDocumentLoader;
+  }): Promise<IProofDescription>;
 
   verifyProof(options: {
-    proof: object;
+    proof: IProofDescription;
     document: object;
     purpose: ProofPurpose;
-    proofSet?: object[];
-    documentLoader: DocumentLoader;
+    proofSet?: IProofDescription[];
+    documentLoader: IDocumentLoader;
   }): Promise<{verified: boolean; error?: Error}>;
 
   derive(options: {
     document: object;
     purpose: ProofPurpose;
-    proofSet?: object[];
-    documentLoader: DocumentLoader;
+    proofSet?: IProofDescription[];
+    documentLoader: IDocumentLoader;
   }): Promise<object>;
 
   matchProof(options: {
-    proof: object;
+    proof: IProofDescription;
     document?: object;
     purpose?: ProofPurpose;
-    documentLoader?: DocumentLoader;
+    documentLoader?: IDocumentLoader;
   }): Promise<boolean>;
 
   ensureSuiteContext(options: {document: object; addSuiteContext: boolean}): void;
 }
 
-export interface LDKeyPair {
-  id: string;
-  signer?(): Signer;
-  verifier?(): Verifier;
-}
-
 export interface LinkedDataSignatureOptions {
   type: string;
   contextUrl?: string;
-  LDKeyClass?: new (...args: any[]) => LDKeyPair;
-  key?: LDKeyPair;
-  signer?: Signer;
-  verifier?: Verifier;
-  proof?: object;
+  LDKeyClass?: new (...args: any[]) => AbstractKeyPair;
+  key?: AbstractKeyPair;
+  signer?: ISigner;
+  verifier?: IVerifier;
+  proof?: IProofDescription;
   date?: string | Date | null;
   useNativeCanonize?: boolean;
   canonizeOptions?: object;
 }
 
 export class LinkedDataSignature extends LinkedDataProof {
-  LDKeyClass?: new (...args: any[]) => LDKeyPair;
+  LDKeyClass?: new (...args: any[]) => AbstractKeyPair;
   contextUrl: string;
-  proof?: object;
+  proof?: IProofDescription;
   verificationMethod?: string;
-  key?: LDKeyPair;
-  signer?: Signer;
-  verifier?: Verifier;
+  key?: AbstractKeyPair;
+  signer?: ISigner;
+  verifier?: IVerifier;
   date?: Date | null;
   canonizeOptions?: object;
 
@@ -192,22 +194,22 @@ export class LinkedDataSignature extends LinkedDataProof {
   sign(options: {
     verifyData: Uint8Array;
     document: object;
-    proof: object;
-    documentLoader: DocumentLoader;
-  }): Promise<object>;
+    proof: IProofDescription;
+    documentLoader: IDocumentLoader;
+  }): Promise<IProofDescription>;
 
   verifySignature(options: {
     verifyData: Uint8Array;
-    verificationMethod: object;
+    verificationMethod: IVerificationMethod;
     document: object;
-    proof: object;
-    documentLoader: DocumentLoader;
+    proof: IProofDescription;
+    documentLoader: IDocumentLoader;
   }): Promise<boolean>;
 
   getVerificationMethod(options: {
-    proof: object;
-    documentLoader: DocumentLoader;
-  }): Promise<object>;
+    proof: IProofDescription;
+    documentLoader: IDocumentLoader;
+  }): Promise<IVerificationMethod>;
 }
 
 // --- Top-level API ---
@@ -217,7 +219,7 @@ export function sign(
   options: {
     suite: LinkedDataProof;
     purpose: ProofPurpose;
-    documentLoader?: DocumentLoader;
+    documentLoader?: IDocumentLoader;
     addSuiteContext?: boolean;
   }
 ): Promise<object>;
@@ -227,7 +229,7 @@ export function verify(
   options: {
     suite: LinkedDataProof | LinkedDataProof[];
     purpose: ProofPurpose;
-    documentLoader?: DocumentLoader;
+    documentLoader?: IDocumentLoader;
   }
 ): Promise<VerifyResult>;
 
@@ -236,15 +238,15 @@ export function derive(
   options: {
     suite: LinkedDataProof;
     purpose: ProofPurpose;
-    documentLoader?: DocumentLoader;
+    documentLoader?: IDocumentLoader;
     addSuiteContext?: boolean;
   }
 ): Promise<object>;
 
 // --- Document loader utilities ---
 
-export const strictDocumentLoader: DocumentLoader;
-export function extendContextLoader(loader: DocumentLoader): DocumentLoader;
+export const strictDocumentLoader: IDocumentLoader;
+export function extendContextLoader(loader: IDocumentLoader): IDocumentLoader;
 
 // --- Constants ---
 

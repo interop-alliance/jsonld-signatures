@@ -1,5 +1,35 @@
 # @interop/jsonld-signatures ChangeLog
 
+## Unreleased - TBD
+
+### Changed
+- (Types only) Align the exported TypeScript definitions with the shared
+  `@interop` ecosystem types from `@interop/data-integrity-core`. The locally
+  defined `RemoteDocument`, `DocumentLoader`, `Signer`, `Verifier`, and
+  `LDKeyPair` are replaced by `IRemoteDocument`, `IDocumentLoader`, `ISigner`,
+  `IVerifier`, and `AbstractKeyPair` respectively; `LDKeyClass` now constructs
+  an `AbstractKeyPair`; resolved verification methods are typed
+  `IVerificationMethod`; and proof objects are typed `IProofDescription`. The
+  shared types are re-exported from this package for convenience. Runtime
+  behavior is unchanged.
+- (Types only) Align the source JSDoc in `lib/` with the renamed exports above
+  (`RemoteDocument` → `IRemoteDocument`, `LDKeyPair` → `AbstractKeyPair`,
+  `Signer`/`Verifier` → `ISigner`/`IVerifier`, verification methods →
+  `IVerificationMethod`), and add JSDoc `@typedef {import(...)}` declarations so
+  these names — along with the local `ProofPurpose`/`LinkedDataSignature`
+  classes — resolve to their definitions. Also fixed invalid `{integer}` /
+  `{string or Date or integer}` JSDoc types to `{number}` /
+  `{string|Date|number}`.
+
+### Added
+- Add `@interop/data-integrity-core` as a dependency (provides the shared
+  TypeScript types referenced above).
+
+### Removed
+- Remove the `build` step from `publish.yml` (this package has no build step;
+  the published artifact is the source `lib/**/*.js` plus the hand-written
+  `index.d.ts`).
+
 ## 11.6.4-11.6.6 - 2026-06-02
 
 ### Added
