@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## 11.6.4-11.6.5 - 2026-06-02
+## 11.6.4-11.6.6 - 2026-06-02
 
 ### Added
 - Add `publish.yml` CI task.
