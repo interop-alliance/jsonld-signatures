@@ -1,5 +1,15 @@
 # @interop/jsonld-signatures ChangeLog
 
+## Unreleased - TBD
+
+### Changed
+- (Types only) Add optional `verificationMethod?: string` to the
+  `LinkedDataProof` base class, and widen `LinkedDataSignature.date` (and the
+  constructor `date` option) to `Date | null`. These make `LinkedDataProof`
+  subclasses that carry a verification method and a nullable `date` (notably
+  `@interop/data-integrity-proof`'s `DataIntegrityProof`) assignable to the
+  exported suite types. Runtime behavior is unchanged.
+
 ## 11.6.2 - 2026-05-24
 
 ### Changed
