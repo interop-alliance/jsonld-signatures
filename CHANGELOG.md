@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## Unreleased - TBD
+## 11.6.3 - 2026-06-02
 
 ### Changed
 - (Types only) Add optional `verificationMethod?: string` to the
