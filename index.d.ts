@@ -121,6 +121,7 @@ export class AuthenticationProofPurpose extends ControllerProofPurpose {
 
 export class LinkedDataProof {
   type: string;
+  verificationMethod?: string;
 
   constructor(options: {type: string});
 
@@ -170,7 +171,7 @@ export interface LinkedDataSignatureOptions {
   signer?: Signer;
   verifier?: Verifier;
   proof?: object;
-  date?: string | Date;
+  date?: string | Date | null;
   useNativeCanonize?: boolean;
   canonizeOptions?: object;
 }
@@ -183,7 +184,7 @@ export class LinkedDataSignature extends LinkedDataProof {
   key?: LDKeyPair;
   signer?: Signer;
   verifier?: Verifier;
-  date?: Date;
+  date?: Date | null;
   canonizeOptions?: object;
 
   constructor(options: LinkedDataSignatureOptions);
