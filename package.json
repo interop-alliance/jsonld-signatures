@@ -1,6 +1,6 @@
 {
   "name": "@interop/jsonld-signatures",
-  "version": "11.6.4",
+  "version": "11.6.5",
   "description": "An implementation of the Linked Data Signatures specifications for JSON-LD in JavaScript.",
   "homepage": "https://github.com/digitalbazaar/jsonld-signatures",
   "author": {
@@ -61,6 +61,11 @@
     "nyc": "^15.1.0",
     "webpack": "^5.73.0"
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "packageManager": "pnpm@11.3.0",
   "engines": {
     "node": ">=18"
   },
