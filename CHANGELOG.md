@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## 11.7.0 - 2026-06-09
+## 11.7.0-11.7.1 - 2026-06-09
 
 ### Changed
 
