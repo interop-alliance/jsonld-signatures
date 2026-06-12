@@ -123,6 +123,23 @@ For detailed usage instructions, see the READMEs of the supported suites:
 * [`Ed25519Signature2020`](https://github.com/digitalbazaar/ed25519-signature-2020) 
 * [`Ed25519Signature2018`](https://github.com/digitalbazaar/ed25519-signature-2018)
 
+### Importing (CJS and ESM)
+
+This package is CommonJS. From CJS code, use `require()` as usual. From
+Node.js ESM (and TypeScript with `module: NodeNext`), both default and named
+imports work:
+
+```js
+import jsigs from '@interop/jsonld-signatures';
+// or
+import {sign, verify, purposes} from '@interop/jsonld-signatures';
+```
+
+Note: named and namespace (`import * as`) imports rely on the entry point's
+exports being statically analyzable by Node.js (`cjs-module-lexer`); versions
+through 11.7.1 were not, so on those versions only the default-import form
+works at runtime on plain Node (bundlers and vitest mask the difference).
+
 Most of the usages with individual suites and key types will have elements in
 common. You'll need to:
 
