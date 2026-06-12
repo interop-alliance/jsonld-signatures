@@ -1,5 +1,22 @@
 # @interop/jsonld-signatures ChangeLog
 
+## 11.8.0 - TBD
+
+### Fixed
+
+- Restructure the CJS entry point so its named exports are statically
+  detectable by node's `cjs-module-lexer`. Previously, `import {verify}`
+  from node ESM failed with "Named export 'verify' not found" and
+  `import * as jsigs` produced a namespace where `jsigs.verify` was
+  `undefined` (bundler/vitest CJS interop masked both); only the
+  default-import form worked. All three import forms now work and the
+  `require()` surface is unchanged.
+
+### Added
+
+- Export `VerificationError` at runtime (it was already declared in
+  `index.d.ts` but missing from `module.exports`).
+
 ## 11.7.0-11.7.1 - 2026-06-09
 
 ### Changed
