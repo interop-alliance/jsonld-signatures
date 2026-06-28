@@ -1,2 +1,3 @@
 minimumReleaseAgeExclude:
-  - '@interop/data-integrity-core@8.0.0'
+  - '@interop/http-client@1.0.4'
+  - '@interop/jsonld@9.0.3'

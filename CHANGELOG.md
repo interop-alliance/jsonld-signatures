@@ -1,5 +1,11 @@
 # @interop/jsonld-signatures ChangeLog
 
+## 11.8.2 - 2026-06-28
+
+### Fixed
+- Update to `@interop/jsonld@9.0.3` (fixes http-client's json content type
+  detection).
+
 ## 11.8.0-11.8.1 - 2026-06-12
 
 ### Changed
