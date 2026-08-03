@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@interop/data-integrity-core':
-        specifier: ^8.3.0
-        version: 8.3.0
+        specifier: ^8.4.0
+        version: 8.4.0
       '@interop/jsonld':
         specifier: ^9.0.3
         version: 9.0.3
@@ -194,8 +194,8 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
 
-  '@interop/data-integrity-core@8.3.0':
-    resolution: {integrity: sha512-8rYHqCHbYub8hh16HvQrJ8ozXHhv+t/gC0f6/JN9CLOdyL3EUTZOyKHjOKDRaelxjIplQG61LIUxGL3ihF1aXQ==}
+  '@interop/data-integrity-core@8.4.0':
+    resolution: {integrity: sha512-j7Y9BthxKWdPx6d3q96jHnDJXj08BWE++JeWJ0jhqJJbdvCMPgenU2g/MUrlZqe3TtF52ULlYJFYRoWwTDVGdg==}
     engines: {node: '>=24.0'}
 
   '@interop/http-client@1.0.4':
@@ -2031,7 +2031,7 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@interop/data-integrity-core@8.3.0': {}
+  '@interop/data-integrity-core@8.4.0': {}
 
   '@interop/http-client@1.0.4':
     dependencies:
