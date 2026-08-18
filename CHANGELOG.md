@@ -1,5 +1,10 @@
 # @interop/jsonld-signatures ChangeLog
 
+## 11.8.5 - TBD
+
+### Changed
+- Update to `@interop/data-integrity-core@8.7.1`.
+
 ## 11.8.4 - 2026-08-03
 
 ### Changed
