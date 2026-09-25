@@ -1,5 +1,10 @@
 # @interop/jsonld-signatures ChangeLog
 
+## 11.8.6 - TBD
+
+### Changed
+- Update to `@interop/data-integrity-core@8.8.0` (root zcap allowed actions).
+
 ## 11.8.5 - 2026-08-18
 
 ### Changed
