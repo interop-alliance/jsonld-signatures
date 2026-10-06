@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## 11.8.7 - TBD
+## 11.8.7 - 2026-10-06
 
 ### Fixed
 - Types: `AuthenticationProofPurposeOptions` no longer requires `term` (the
