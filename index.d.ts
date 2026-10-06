@@ -39,6 +39,12 @@ export interface ProofValidateResult {
 export interface ProofResult {
   proof: IProofDescription;
   verified: boolean;
+  /**
+   * The resolved verification method the proof was checked against, as
+   * `ProofSet` sets it on every per-proof result (absent when the suite
+   * threw before resolving one).
+   */
+  verificationMethod?: IVerificationMethod;
   error?: Error;
   purposeResult?: ProofValidateResult;
 }
@@ -113,8 +119,11 @@ export class AssertionProofPurpose extends ControllerProofPurpose {
   constructor(options?: Partial<ControllerProofPurposeOptions>);
 }
 
+/**
+ * `term` is optional: the constructor defaults it to `authentication`.
+ */
 export interface AuthenticationProofPurposeOptions
-  extends ControllerProofPurposeOptions {
+  extends Partial<ControllerProofPurposeOptions> {
   challenge: string;
   domain?: string;
 }

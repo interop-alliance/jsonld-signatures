@@ -1,5 +1,14 @@
 # @interop/jsonld-signatures ChangeLog
 
+## 11.8.7 - TBD
+
+### Fixed
+- Types: `AuthenticationProofPurposeOptions` no longer requires `term` (the
+  constructor defaults it), so `new AuthenticationProofPurpose({ challenge })`
+  typechecks without a cast.
+- Types: `ProofResult` declares the `verificationMethod` that `ProofSet` sets
+  on each per-proof verify result.
+
 ## 11.8.6 - 2026-09-25
 
 ### Changed
