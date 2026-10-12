@@ -28,7 +28,8 @@ describe('ESM named exports', () => {
     'purposes',
     'extendContextLoader',
     'strictDocumentLoader',
-    'VerificationError'
+    'VerificationError',
+    'VerificationMethodError'
   ];
 
   it('exposes every API member as a detectable named export', async () => {
