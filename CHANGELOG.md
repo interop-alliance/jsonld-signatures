@@ -1,5 +1,23 @@
 # @interop/jsonld-signatures ChangeLog
 
+## 11.9.0 - TBD
+
+### Added
+- `LinkedDataSignature.getVerificationMethod` and
+  `ControllerProofPurpose.validate` throw `VerificationMethodError` (from
+  `@interop/data-integrity-core`, re-exported here) with a `code` of
+  `notFound`, `notAuthorized`, or `invalidId` and the offending
+  `verificationMethod` id where known. Messages are unchanged.
+
+### Fixed
+- `getVerificationMethod` throws `notFound` when framing yields no match. The
+  previous check tested for a falsy result, which `jsonld` no longer returns
+  for a missing node, so a missing method fell through to signature
+  verification.
+
+### Changed
+- Update to `@interop/data-integrity-core@8.9.0`.
+
 ## 11.8.7 - 2026-10-06
 
 ### Fixed

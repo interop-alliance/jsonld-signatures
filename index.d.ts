@@ -55,6 +55,15 @@ export interface VerifyResult {
   error?: VerificationError;
 }
 
+// --- Verification method faults ---
+
+// The typed error thrown by `LinkedDataSignature.getVerificationMethod`
+// (`notFound`) and `ControllerProofPurpose.validate` (`notAuthorized`,
+// `invalidId`). Defined in `@interop/data-integrity-core` so DID drivers can
+// throw the same class.
+export { VerificationMethodError } from '@interop/data-integrity-core';
+export type { IVerificationMethodErrorCode } from '@interop/data-integrity-core';
+
 // --- VerificationError ---
 
 export class VerificationError extends Error {
