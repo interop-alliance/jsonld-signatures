@@ -1,6 +1,6 @@
 # @interop/jsonld-signatures ChangeLog
 
-## 11.9.0 - TBD
+## 11.9.0 - 2026-10-12
 
 ### Added
 - `LinkedDataSignature.getVerificationMethod` and
